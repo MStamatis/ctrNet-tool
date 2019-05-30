@@ -114,11 +114,11 @@ class BaseModel(object):
             log_loss=metrics.log_loss(dev_data[1],preds)
             if self.best_score>log_loss:
                 self.best_score=log_loss
-                try:
-                    os.makedirs('model_tmp/')
-                except:
-                    pass
-                self.saver.save(sess,'model_tmp/model')
+                #try:
+                #    os.makedirs('model_tmp/')
+                #except:
+                #    pass
+                #self.saver.save(sess,'model_tmp/model')
             utils.print_out("# Epcho-time %.2fs Eval logloss %.6f. Best logloss %.6f." \
                             %(T,log_loss,self.best_score))
         elif hparams.metric=='auc':
@@ -126,11 +126,11 @@ class BaseModel(object):
             auc=metrics.auc(fpr, tpr)
             if self.best_score<auc:
                 self.best_score=auc
-                try:
-                    os.makedirs('model_tmp/')
-                except:
-                    pass
-                self.saver.save(sess,'model_tmp/model')                           
+                #try:
+                #    os.makedirs('model_tmp/')
+                #except:
+                #    pass
+                #self.saver.save(sess,'model_tmp/model')                           
             utils.print_out("# Epcho-time %.2fs Eval AUC %.6f. Best AUC %.6f." \
                             %(T,auc,self.best_score))  
 
